@@ -33,3 +33,36 @@ int parse_options(int argc, char* argv[])
 	cout << FMT_FG_YELLOW << "Hello World!"  << FMT_RESET << endl;
 	return 0;
 }
+
+int add(int lhs, int rhs)
+{
+	return lhs + rhs;
+}
+
+int multiply(int lhs, int rhs)
+{
+	int out;
+	for(int i = 0; i < rhs; ++i)
+	{
+		out = add(out, lhs);
+	}
+	return out;
+}
+
+int pow(int n, int pow)
+{
+	// todo
+	return n;
+}
+
+int pi()
+{
+	// todo
+	return 0;
+}
+
+int e()
+{
+	// todo
+	return 0;
+}
