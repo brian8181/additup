@@ -71,13 +71,13 @@ int add(int lhs, int rhs)
 	#ifndef NO_SHOW
 	cout << "adding ... " << lhs << '+' << rhs << endl;
 	#endif
-	
+
 	return lhs + rhs;
 }
 
 int subtract(int lhs, int rhs)
 {
-	add(lhs, -rhs);
+	return add(lhs, -rhs);
 }
 
 int multiply(int lhs, int rhs)

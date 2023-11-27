@@ -6,7 +6,6 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -DDEBUG -g
 #CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
-
 APPNAME = additup
 BUILD = build
 OBJ =  build
@@ -15,6 +14,9 @@ SRC = src
 debug: all
 
 all: additup
+
+# all_no_show:
+# 	CXXFLAGS+='-DNO_SHOW'
 
 additup: additup.o main.o #@@PREREQUISTE@@
 	 $(CXX) $(CXXFLAGS) $(BUILD)/additup.o $(BUILD)/main.o -o $(BUILD)/additup #@@CLASS_NAME@@
