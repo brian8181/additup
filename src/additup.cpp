@@ -39,6 +39,9 @@ int parse_options(int argc, char* argv[])
 	ans = add(lhs, rhs);
 	cout << lhs << '+' << rhs << "=" << ans << endl;
 
+	ans = subtract(lhs, rhs);
+	cout << lhs << '-' << rhs << "=" << ans << endl;
+
 	ans = multiply(lhs, rhs);
 	cout << lhs << '*' << rhs << "=" << ans << endl;
 
@@ -67,6 +70,11 @@ int add(int lhs, int rhs)
 {
 	cout << "adding ... " << lhs << '+' << rhs << endl;
 	return lhs + rhs;
+}
+
+int subtract(int lhs, int rhs)
+{
+	add(lhs, -rhs);
 }
 
 int multiply(int lhs, int rhs)
@@ -98,5 +106,6 @@ int pi()
 int e()
 {
 	// todo
+
 	return 0;
 }
