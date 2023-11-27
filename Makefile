@@ -5,6 +5,8 @@
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -DDEBUG -g
+#CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
+
 APPNAME = additup
 BUILD = build
 OBJ =  build
