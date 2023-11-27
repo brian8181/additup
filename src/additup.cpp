@@ -65,6 +65,7 @@ int parse_options(int argc, char* argv[])
 
 int add(int lhs, int rhs)
 {
+	cout << "adding ... " << lhs << '+' << rhs << endl;
 	return lhs + rhs;
 }
 
