@@ -49,6 +49,22 @@ int multiply(int lhs, int rhs)
 	return out;
 }
 
+int divide(int dividend, int divisor)
+{
+    int c = 1;
+    int r = divisor;
+    while(r < dividend)
+    {
+        // r += divisor;
+        // c++;
+        r = add(r, divisor);
+        c = add(c, 1);
+    }
+    if(r != dividend)
+        --c;
+    return c;
+}
+
 int pow(int n, int p)
 {
 	int out = n;

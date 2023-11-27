@@ -51,6 +51,11 @@ int parse_options(int argc, char* argv[])
 	ans = multiply(lhs, rhs);
 	cout << lhs << '*' << rhs << "=" << ans << endl;
 
+	int dividend = 21;
+	int divisor = 7;
+	int quotient = divide(dividend, divisor);
+	cout << dividend << "\\" << divisor << "=" << quotient << endl;
+
 	int n = 0;
 	int p = 0;
 
