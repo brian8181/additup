@@ -21,7 +21,7 @@
 #include <string>
 #include <getopt.h>
 #include "bash_color.h"
-#include "additup.hpp"
+#include "additup_ui.hpp"
 
 using namespace std;
 

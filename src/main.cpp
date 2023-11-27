@@ -24,7 +24,7 @@
 #include <sys/select.h>     /* for pselect   */
 #include <string>
 #include <getopt.h>
-#include "additup.hpp"
+#include "additup_ui.hpp"
 
 int stdin_ready (int filedes)
 {
