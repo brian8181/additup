@@ -47,6 +47,19 @@ int parse_options(int argc, char* argv[])
 	ans = multiply(lhs, rhs);
 	cout << lhs << '*' << rhs << "=" << ans << endl;
 
+	int n = 0;
+	int p = 0;
+
+	n = 2;
+	p = 3;
+	ans = pow(n, p);
+	cout << n << '^' << p << "=" << ans << endl;
+
+	n = 3;
+	p = 4;
+	ans = pow(n, p);
+	cout << n << '^' << p << "=" << ans << endl;
+
 	return 0;
 }
 
@@ -65,10 +78,10 @@ int multiply(int lhs, int rhs)
 	return out;
 }
 
-int pow(int n, int pow)
+int pow(int n, int p)
 {
 	int out = n;
-	for(int i = 0; i < pow; ++i)
+	for(int i = 0; i < (p-1); ++i)
 	{
 		out = multiply(out, n);
 	}
