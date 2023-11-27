@@ -31,6 +31,22 @@ int parse_options(int argc, char* argv[])
 	cout << FMT_FG_RED << "Hello World!"  << FMT_RESET << endl;
 	cout << FMT_FG_GREEN << "Hello World!"  << FMT_RESET << endl;
 	cout << FMT_FG_YELLOW << "Hello World!"  << FMT_RESET << endl;
+
+	int lhs = 2;
+	int rhs = 3;
+	int ans = 0;
+
+	ans = add(lhs, rhs);
+	cout << lhs << '+' << rhs << "=" << ans << endl;
+
+	ans = multiply(lhs, rhs);
+	cout << lhs << '*' << rhs << "=" << ans << endl;
+
+	lhs = 3;
+	rhs = 7;
+	ans = multiply(lhs, rhs);
+	cout << lhs << '*' << rhs << "=" << ans << endl;
+
 	return 0;
 }
 
@@ -41,7 +57,7 @@ int add(int lhs, int rhs)
 
 int multiply(int lhs, int rhs)
 {
-	int out;
+	int out = 0;
 	for(int i = 0; i < rhs; ++i)
 	{
 		out = add(out, lhs);
@@ -51,8 +67,12 @@ int multiply(int lhs, int rhs)
 
 int pow(int n, int pow)
 {
-	// todo
-	return n;
+	int out = n;
+	for(int i = 0; i < pow; ++i)
+	{
+		out = multiply(out, n);
+	}
+	return out;
 }
 
 int pi()
