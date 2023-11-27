@@ -21,48 +21,53 @@
 #include <string>
 #include <getopt.h>
 #include "bash_color.h"
-#include "additup_ui.hpp"
 #include "additup.hpp"
 
 using namespace std;
 
-int parse_options(int argc, char* argv[])
+int add(int lhs, int rhs)
 {
-	cout << FMT_FG_BLUE << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_RED << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_GREEN << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_YELLOW << "Hello World!"  << FMT_RESET << endl;
+	#ifndef NO_SHOW
+	cout << "adding ... " << lhs << '+' << rhs << endl;
+	#endif
 
-	int lhs = 2;
-	int rhs = 3;
-	int ans = 0;
+	return lhs + rhs;
+}
 
-	ans = add(lhs, rhs);
-	cout << lhs << '+' << rhs << "=" << ans << endl;
+int subtract(int lhs, int rhs)
+{
+	return add(lhs, -rhs);
+}
 
-	ans = subtract(lhs, rhs);
-	cout << lhs << '-' << rhs << "=" << ans << endl;
+int multiply(int lhs, int rhs)
+{
+	int out = 0;
+	for(int i = 0; i < rhs; ++i)
+	{
+		out = add(out, lhs);
+	}
+	return out;
+}
 
-	ans = multiply(lhs, rhs);
-	cout << lhs << '*' << rhs << "=" << ans << endl;
+int pow(int n, int p)
+{
+	int out = n;
+	for(int i = 0; i < (p-1); ++i)
+	{
+		out = multiply(out, n);
+	}
+	return out;
+}
 
-	lhs = 3;
-	rhs = 7;
-	ans = multiply(lhs, rhs);
-	cout << lhs << '*' << rhs << "=" << ans << endl;
+int pi()
+{
+	// todo
+	return 0;
+}
 
-	int n = 0;
-	int p = 0;
-
-	n = 2;
-	p = 3;
-	ans = pow(n, p);
-	cout << n << '^' << p << "=" << ans << endl;
-
-	n = 3;
-	p = 4;
-	ans = pow(n, p);
-	cout << n << '^' << p << "=" << ans << endl;
+int e()
+{
+	// todo
 
 	return 0;
 }
