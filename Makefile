@@ -6,12 +6,9 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -DDEBUG -g
 #CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
-APPNAME = additup_ui
 BUILD = build
 OBJ =  build
 SRC = src
-
-debug: all
 
 all: additup_ui
 
