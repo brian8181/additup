@@ -33,6 +33,5 @@ main.o:
 #AUTO_INSERT_POINT_DO_NOT_REMOVE#
 
 clean:
-	-rm -f $(OBJ)/*.
 	-rm -f $(BUILD)/*
 	

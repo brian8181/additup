@@ -55,8 +55,6 @@ int divide(int dividend, int divisor)
     int r = divisor;
     while(r < dividend)
     {
-        // r += divisor;
-        // c++;
         r = add(r, divisor);
         c = add(c, 1);
     }
@@ -64,6 +62,35 @@ int divide(int dividend, int divisor)
         --c;
     return c;
 }
+
+int divide(int dividend, int divisor, /* out */ int& remainder)
+{
+    int c = 1;
+    int r = divisor;
+    while(r < dividend)
+    {
+        r = add(r, divisor);
+        c = add(c, 1);
+    }
+    remainder = dividend-r;
+    if(remainder)
+        --c;
+    return c;
+}
+
+// int divide_v2(int dividend, int divisor)
+// {
+//     int c = 1;
+//     int r = divisor;
+//     // while(r < dividend)
+//     // {
+//     //     r = add(r, divisor);
+//     //     c = add(c, 1);
+//     // }
+//     // if(r != dividend)
+//     //     --c;
+//     return c;
+// }
 
 int pow(int n, int p)
 {

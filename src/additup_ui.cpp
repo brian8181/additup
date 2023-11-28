@@ -54,7 +54,19 @@ int parse_options(int argc, char* argv[])
 	int dividend = 21;
 	int divisor = 7;
 	int quotient = divide(dividend, divisor);
-	cout << dividend << "\\" << divisor << "=" << quotient << endl;
+	cout << dividend << "/" << divisor << "=" << quotient << endl;
+
+	dividend = 25;
+	divisor = 7;
+	quotient = divide(dividend, divisor);
+	cout << dividend << "/" << divisor << "=" << quotient << endl;
+
+	dividend = 30;
+	divisor = 7;
+	int remainder = 0;
+	quotient = divide(dividend, divisor, remainder);
+	cout << dividend << "/" << divisor << "=" << quotient << " R=" << remainder << endl;
+
 
 	int n = 0;
 	int p = 0;
