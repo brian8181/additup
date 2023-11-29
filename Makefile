@@ -12,9 +12,6 @@ SRC = src
 
 all: additup_ui
 
-# all_no_show:
-# 	CXXFLAGS+='-DNO_SHOW'
-
 additup_ui: additup_ui.o additup.o main.o fixed_width.o #@@PREREQUISTE@@
 	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o -o $(BUILD)/additup_ui #@@CLASS_NAME@@
 

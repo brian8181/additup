@@ -9,8 +9,6 @@ fixed_width::fixed_width()
 
 fixed_width::fixed_width(int mantissa, int exponet, int width)
 {
-    int raw = pow(2, width);
-    int exp_size = std::log10<int>( raw );
     val = mantissa << 8;
     val |= (exponet & 0x000000FF);
 }
@@ -37,8 +35,7 @@ string fixed_width::to_str()
     int mantissa = (val >> 8);
     base_10_str.clear();
     base_10_str = std::to_string(mantissa);
-    int len = base_10_str.size();
     base_10_str.insert(exponet, ".");
-    base_10_str.erase(exponet+width);
+    base_10_str.erase(exponet+width+1);
     return base_10_str;
 }
