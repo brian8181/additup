@@ -15,14 +15,17 @@ all: additup_ui
 # all_no_show:
 # 	CXXFLAGS+='-DNO_SHOW'
 
-additup_ui: additup_ui.o additup.o main.o #@@PREREQUISTE@@
-	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o -o $(BUILD)/additup_ui #@@CLASS_NAME@@
+additup_ui: additup_ui.o additup.o main.o fixed_width.o #@@PREREQUISTE@@
+	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o -o $(BUILD)/additup_ui #@@CLASS_NAME@@
 
 additup_ui.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/additup_ui.cpp -o $(BUILD)/additup_ui.o
 
 additup.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/additup.cpp -o $(BUILD)/additup.o
+
+fixed_width.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/fixed_width.cpp -o $(BUILD)/fixed_width.o
 	
 main.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BUILD)/main.o
