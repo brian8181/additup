@@ -21,7 +21,7 @@ public:
 
     long val = 0;
     int width = 4;
-    string base_10_str = "0";
+    string base_10_str;
     std::mega m;
 };
 

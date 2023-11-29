@@ -87,7 +87,8 @@ int parse_options(int argc, char* argv[])
 	ans = pow(n, p);
 	cout << n << '^' << p << "=" << ans << endl;
 
-	fixed_width fw(2, 0, 0);
+	fixed_width fw(3141516, 4, 0);
+	cout << "Fixed test: " << fw.to_str() << endl;
 
 	return 0;
 }
