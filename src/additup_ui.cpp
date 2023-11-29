@@ -20,6 +20,7 @@
 #include <iostream>
 #include <string>
 #include <getopt.h>
+#include <fmt/format.h>
 #include "bash_color.h"
 #include "additup_ui.hpp"
 #include "fixed_width.hpp"
@@ -90,5 +91,9 @@ int parse_options(int argc, char* argv[])
 	fixed_width fw(3141516, 1, 4);
 	cout << "Fixed test: " << fw.to_str() << endl;
 
+	double pi = 3.141618;
+
+	string s = fmt::format("Pi appors {0}", pi);
+	cout << "format test: " << "Pi = " << s << endl;
 	return 0;
 }

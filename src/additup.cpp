@@ -20,6 +20,7 @@
 #include <iostream>
 #include <string>
 #include <getopt.h>
+#include <fmt/format.h>
 #include "bash_color.h"
 #include "additup.hpp"
 

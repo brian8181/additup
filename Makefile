@@ -4,16 +4,18 @@
 #// Version:    0.0.1
 
 CXX = g++
-CXXFLAGS = -Wall -std=c++17 -DDEBUG -g
+CXXFLAGS = -Wall -std=c++20 -DDEBUG -g
 #CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
 BUILD = build
 OBJ =  build
 SRC = src
+LDFLAGS = -static -llibfmt -L/usr/local/lib64/fmt
+INCLUDES = -I/usr/local/include/fmt/
 
 all: additup_ui
 
 additup_ui: additup_ui.o additup.o main.o fixed_width.o #@@PREREQUISTE@@
-	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o -o $(BUILD)/additup_ui #@@CLASS_NAME@@
+	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o /usr/local/lib64/libfmt.a -o $(BUILD)/additup_ui #@@CLASS_NAME@@
 
 additup_ui.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/additup_ui.cpp -o $(BUILD)/additup_ui.o
