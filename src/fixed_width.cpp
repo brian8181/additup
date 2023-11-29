@@ -13,13 +13,16 @@ fixed_width::fixed_width(int mantissa, int exponet, int width)
     val |= (exponet & 0x000000FF);
 }
 
-fixed_width& fixed_width::add(const fixed_width& rhs, const int& lhs, /* out*/ fixed_width& output)
+fixed_width& fixed_width::add(fixed_width& rhs, int& lhs, /* out*/ fixed_width& output)
 {
+    //output = rhs.get_mantissa() + lhs;
     return output;
 }
 
-fixed_width& fixed_width::add(const fixed_width& rhs, const fixed_width& lhs, /* out*/ fixed_width& output)
+fixed_width& fixed_width::add(fixed_width& rhs, fixed_width& lhs, /* out*/ fixed_width& output)
 {
+    int ret = rhs.get_mantissa() + lhs.get_mantissa();
+    output = fixed_width(ret, rhs.get_exponet(), 4);
     return output;
 }
 
@@ -27,6 +30,16 @@ fixed_width fixed_width::divide(const fixed_width& rhs, const fixed_width& lhs, 
 {
     output = rhs;
     return output;
+}
+
+int fixed_width::get_mantissa()
+{
+    return val >> 8;
+}
+
+int fixed_width::get_exponet()
+{
+    return  val & 0x000000FF;  
 }
 
 string fixed_width::to_str()
