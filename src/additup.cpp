@@ -104,8 +104,18 @@ int pow(int n, int p)
 
 int pi()
 {
-	// todo
-	return 0;
+	int k = 1;
+    double sk = 0;
+    long max = pow(2, 16);
+    while(sk < max)
+    {
+        int top = pow(-1, k);
+        int bot = add(multiply(2, k), 1);
+        sk += multiply(top, divide(1,bot));
+        ++k;
+    }
+    
+	return sk;
 }
 
 int e()
