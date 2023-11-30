@@ -19,14 +19,34 @@ fixed_width& fixed_width::add(fixed_width& rhs, int& lhs, /* out*/ fixed_width& 
     return output;
 }
 
-fixed_width& fixed_width::add(fixed_width& rhs, fixed_width& lhs, /* out*/ fixed_width& output)
+fixed_width& fixed_width::add(fixed_width& lhs, long& rhs, /* out*/ fixed_width& output)
 {
-    int ret = rhs.get_mantissa() + lhs.get_mantissa();
-    output = fixed_width(ret, rhs.get_exponet(), 4);
     return output;
 }
 
-fixed_width fixed_width::divide(const fixed_width& rhs, const fixed_width& lhs, /* out*/ fixed_width& output)
+fixed_width& fixed_width::add(fixed_width& lhs, short& rhs, /* out*/ fixed_width& output)
+{
+    return output;
+}
+
+fixed_width& fixed_width::add(fixed_width& lhs, float& rhs, /* out*/ fixed_width& output)
+{
+    return output;
+}
+
+fixed_width& fixed_width::add(fixed_width& lhs, double& rhs, /* out*/ fixed_width& output)
+{
+    return output;
+}
+
+fixed_width& fixed_width::add(fixed_width& lhs, fixed_width& rhs, /* out*/ fixed_width& output)
+{
+    int ret = lhs.get_mantissa() + rhs.get_mantissa();
+    output = fixed_width(ret, lhs.get_exponet(), 4);
+    return output;
+}
+
+fixed_width fixed_width::divide(const fixed_width& lhs, const fixed_width& rhs, /* out*/ fixed_width& output)
 {
     output = rhs;
     return output;
