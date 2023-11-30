@@ -93,7 +93,9 @@ int parse_options(int argc, char* argv[])
 
 	double pi = 3.141618;
 
-	string s = fmt::format("Pi appors {0}", pi);
+	string s = fmt::format("Pi apporx. {0}", pi);
 	cout << "format test: " << "Pi = " << s << endl;
-	return 0;
+	
+	fixed_width splight(3000000, 7, 4);
+	cout << "Speed of light: " << splight.to_str() << endl;
 }

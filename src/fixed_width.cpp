@@ -68,7 +68,11 @@ string fixed_width::to_str()
     int mantissa = (val >> 8);
     base_10_str.clear();
     base_10_str = std::to_string(mantissa);
-    base_10_str.insert(exponet, ".");
-    base_10_str.erase(exponet+width+1);
+    base_10_str.length();
+    if(exponet < base_10_str.length()) 
+    {
+        base_10_str.insert(exponet, ".");
+        base_10_str.erase(exponet+width+1);
+    }
     return base_10_str;
 }
