@@ -13,9 +13,11 @@ fixed_width::fixed_width(int mantissa, int exponet, int width)
     val |= (exponet & 0x000000FF);
 }
 
-fixed_width& fixed_width::add(fixed_width& rhs, int& lhs, /* out*/ fixed_width& output)
+fixed_width& fixed_width::add(const fixed_width& rhs, int& lhs, /* out*/ fixed_width& output)
 {
-    //output = rhs.get_mantissa() + lhs;
+
+    // output = rhs.get_mantissa();
+    // output = output + lhs;
     return output;
 }
 
@@ -41,8 +43,8 @@ fixed_width& fixed_width::add(fixed_width& lhs, double& rhs, /* out*/ fixed_widt
 
 fixed_width& fixed_width::add(fixed_width& lhs, fixed_width& rhs, /* out*/ fixed_width& output)
 {
-    int ret = lhs.get_mantissa() + rhs.get_mantissa();
-    output = fixed_width(ret, lhs.get_exponet(), 4);
+    // int ret = lhs.get_mantissa() + rhs.get_mantissa();
+    // output = fixed_width(ret, lhs.get_exponet(), 4);
     return output;
 }
 
@@ -69,7 +71,9 @@ string fixed_width::to_str()
     base_10_str.clear();
     base_10_str = std::to_string(mantissa);
     base_10_str.length();
-    if(exponet < base_10_str.length()) 
+    size_t sz = base_10_str.length();
+    size_t sig_size = exponet;
+    if(sig_size < sz) 
     {
         base_10_str.insert(exponet, ".");
         base_10_str.erase(exponet+width+1);
