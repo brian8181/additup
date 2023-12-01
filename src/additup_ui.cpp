@@ -99,11 +99,32 @@ int parse_options(int argc, char* argv[])
 	fixed_width splight(3000000, 7, 4);
 	cout << "Speed of light: " << splight.to_str() << endl;
 
-	double theta = pi/4;
+	double theta = 0;
 	double sin_val = sin_(theta);
 	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
 
 	double cos_val = cos_(theta);
+	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	
+	theta = pi/2;
+	sin_val = sin_(theta);
+	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+
+	cos_val = cos_(theta);
+	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+
+	theta = pi;
+	sin_val = sin_(theta);
+	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+
+	cos_val = cos_(theta);
+	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+
+	theta = pi/4;
+	sin_val = sin_(theta);
+	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+
+	cos_val = cos_(theta);
 	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
 
 	theta = pi/6;
@@ -112,4 +133,13 @@ int parse_options(int argc, char* argv[])
 
 	cos_val = cos_(theta);
 	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+
+	theta = 2.*(pi/6);
+	sin_val = sin_(theta);
+	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+
+	cos_val = cos_(theta);
+	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+
+	
 }

@@ -116,7 +116,7 @@ long factorial(long x)
 
 double sin_(const double x)
 {
-    const int k = 10;   // iters
+    const int k = 15;   // iters
     double psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
@@ -129,7 +129,7 @@ double sin_(const double x)
 
 double cos_(const double x)
 {
-    const int k = 10;   // iters
+    const int k = 15;   // iters
     double psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
