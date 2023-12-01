@@ -9,10 +9,17 @@ int divide(int dividend, int divisor, /* out */ int& remainder);
 long factorial(long x);
 int pow_(int n, int pow);
 
+double rad2deg(double radians);
+double deg2rad(double degrees);
+
 double sin_(const double x);
 double cos_(const double x);
+double sind_(const double x);
+double cosd_(const double x);
 
-int pi();
-int e(long x);
+int pi_();
+int e_(long x);
+
+static const double pi = 3.141618;
 
 #endif

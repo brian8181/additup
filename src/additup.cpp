@@ -140,7 +140,27 @@ double cos_(const double x)
     return psum;
 }
 
-int pi()
+double sind_(const double x)
+{
+   return sin_(deg2rad(x));
+}
+
+double cosd_(const double x)
+{
+    return cos_(deg2rad(x));
+}
+
+double rad2deg(double radians)
+{
+    return (radians * (180/pi));
+}
+
+double deg2rad(double degrees)
+{
+    return (degrees * (pi/180));
+}
+
+int pi_()
 {
 	int k = 1;
     double sk = 0;

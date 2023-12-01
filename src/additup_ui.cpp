@@ -93,6 +93,8 @@ int parse_options(int argc, char* argv[])
 
 	double pi = 3.141618;
 
+	//char degree_symb = (char)167;
+
 	string s = fmt::format("Pi apporx. {0}", pi);
 	cout << "format test: " << "Pi = " << s << endl;
 	
@@ -101,45 +103,45 @@ int parse_options(int argc, char* argv[])
 
 	double theta = 0;
 	double sin_val = sin_(theta);
-	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
 
 	double cos_val = cos_(theta);
-	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 	
 	theta = pi/2;
 	sin_val = sin_(theta);
-	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
 
 	cos_val = cos_(theta);
-	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 
 	theta = pi;
 	sin_val = sin_(theta);
-	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
 
 	cos_val = cos_(theta);
-	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 
 	theta = pi/4;
 	sin_val = sin_(theta);
-	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
 
 	cos_val = cos_(theta);
-	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 
 	theta = pi/6;
 	sin_val = sin_(theta);
-	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
 
 	cos_val = cos_(theta);
-	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 
 	theta = 2.*(pi/6);
 	sin_val = sin_(theta);
-	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
 
 	cos_val = cos_(theta);
-	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
+	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 
-	
+	return 0;
 }
