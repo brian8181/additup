@@ -8,8 +8,8 @@ int divide(int dividend, int divisor);
 int divide(int dividend, int divisor, /* out */ int& remainder);
 int pow_(int n, int pow);
 
-double sin(double x);
-double cos(double x);
+double sin_(double x);
+double cos_(double x);
 
 int pi();
 int e(long x);

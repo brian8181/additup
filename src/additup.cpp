@@ -104,7 +104,7 @@ int pow_(int n, int p)
 	return out;
 }
 
-double sin(double x)
+double sin_(double x)
 {
     int k = 10; // iters
     int psum = 0;
@@ -116,10 +116,15 @@ double sin(double x)
     return psum;
 }
 
-double cos(double x)
+double cos_(double x)
 {
+    int k = 10; // iters
     int psum = 0;
 
+    for(int n = 0; n < k; ++n)
+    {
+        psum += pow(-1, n) * pow(x, 2*k) / (2*k);
+    }   
     return psum;
 }
 

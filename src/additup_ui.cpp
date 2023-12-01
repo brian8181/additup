@@ -102,4 +102,7 @@ int parse_options(int argc, char* argv[])
 	double theta = 3.1416/4;
 	double sin_val = sin(3.1416/4);
 	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
+
+	double cos_val = sin(3.1416/4);
+	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
 }
