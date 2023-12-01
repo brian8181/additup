@@ -104,11 +104,10 @@ int pow_(int n, int p)
 	return out;
 }
 
-double sin_(double x)
+double sin_(const double x)
 {
-    int k = 10; // iters
-    int psum = 0;
-
+    const int k = 12;   // iters
+    int psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
         psum += pow(-1, n) * pow(x, 2*k + 1) / (2*k + 1);
@@ -116,11 +115,10 @@ double sin_(double x)
     return psum;
 }
 
-double cos_(double x)
+double cos_(const double x)
 {
-    int k = 10; // iters
-    int psum = 0;
-
+    const int k = 12;   // iters
+    int psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
         psum += pow(-1, n) * pow(x, 2*k) / (2*k);
