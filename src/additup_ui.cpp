@@ -100,16 +100,16 @@ int parse_options(int argc, char* argv[])
 	cout << "Speed of light: " << splight.to_str() << endl;
 
 	double theta = 3.1416/4;
-	double sin_val = sin(theta);
+	double sin_val = sin_(theta);
 	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
 
-	double cos_val = cos(theta);
+	double cos_val = cos_(theta);
 	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
 
 	theta = 3.1416/6;
-	sin_val = sin(theta);
+	sin_val = sin_(theta);
 	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
 
-	cos_val = cos(theta);
+	cos_val = cos_(theta);
 	cout << "cos( " <<  theta << " ) = " << cos_val <<  endl;
 }

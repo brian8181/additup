@@ -106,22 +106,22 @@ int pow_(int n, int p)
 
 double sin_(const double x)
 {
-    const int k = 12;   // iters
-    int psum = 0; // partial sums
+    const int k = 50;   // iters
+    double psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
-        psum += pow(-1, n) * pow(x, 2*k + 1) / (2*k + 1);
+        psum += ( pow(-1, n) * pow(x, (2*n) + 1) ) / ((2*n) + 1);
     }   
     return psum;
 }
 
 double cos_(const double x)
 {
-    const int k = 12;   // iters
-    int psum = 0; // partial sums
+    const int k = 50;   // iters
+    double psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
-        psum += pow(-1, n) * pow(x, 2*k) / (2*k);
+        psum += ( pow(-1, n) * pow(x, 2*n) ) / (2*n);
     }   
     return psum;
 }
