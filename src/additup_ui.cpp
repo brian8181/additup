@@ -98,4 +98,8 @@ int parse_options(int argc, char* argv[])
 	
 	fixed_width splight(3000000, 7, 4);
 	cout << "Speed of light: " << splight.to_str() << endl;
+
+	double theta = 3.1416/4;
+	double sin_val = sin(3.1416/4);
+	cout << "sin( " <<  theta << " ) = " << sin_val <<  endl;
 }

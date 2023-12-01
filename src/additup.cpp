@@ -21,6 +21,7 @@
 #include <string>
 #include <getopt.h>
 #include <fmt/format.h>
+#include <cmath>
 #include "bash_color.h"
 #include "additup.hpp"
 
@@ -93,7 +94,7 @@ int divide(int dividend, int divisor, /* out */ int& remainder)
 //     return c;
 // }
 
-int pow(int n, int p)
+int pow_(int n, int p)
 {
 	int out = n;
 	for(int i = 0; i < (p-1); ++i)
@@ -101,6 +102,25 @@ int pow(int n, int p)
 		out = multiply(out, n);
 	}
 	return out;
+}
+
+double sin(double x)
+{
+    int k = 10; // iters
+    int psum = 0;
+
+    for(int n = 0; n < k; ++n)
+    {
+        psum += pow(-1, n) * pow(x, 2*k + 1) / (2*k + 1);
+    }   
+    return psum;
+}
+
+double cos(double x)
+{
+    int psum = 0;
+
+    return psum;
 }
 
 int pi()
@@ -119,7 +139,7 @@ int pi()
 	return sk;
 }
 
-int e()
+int e(long x)
 {
 	// todo
 
