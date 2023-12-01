@@ -104,24 +104,38 @@ int pow_(int n, int p)
 	return out;
 }
 
+long factorial(long x)
+{
+    long product = 1;
+    for(int i = 1; i < x+1; ++i)
+    {
+        product *= i;
+    }
+    return product;
+}
+
 double sin_(const double x)
 {
-    const int k = 50;   // iters
+    const int k = 10;   // iters
     double psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
-        psum += ( pow(-1, n) * pow(x, (2*n) + 1) ) / ((2*n) + 1);
+        long s = (2.*n) + 1;
+        long fac = factorial(s);
+        psum += ( pow(-1, n) * pow(x, s) ) / fac;
     }   
     return psum;
 }
 
 double cos_(const double x)
 {
-    const int k = 50;   // iters
+    const int k = 10;   // iters
     double psum = 0; // partial sums
     for(int n = 0; n < k; ++n)
     {
-        psum += ( pow(-1, n) * pow(x, 2*n) ) / (2*n);
+        long s = (2*n);
+        long fac = factorial(s);
+        psum += ( pow(-1, n) * pow(x, s) ) / fac;
     }   
     return psum;
 }
