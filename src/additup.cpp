@@ -160,7 +160,7 @@ double deg2rad(double degrees)
     return (degrees * (pi/180));
 }
 
-int pi_()
+double pi_()
 {
 	int k = 1;
     double sk = 0;
@@ -176,9 +176,14 @@ int pi_()
 	return sk;
 }
 
-int e(long x)
+double e_(long x)
 {
-	// todo
-
-	return 0;
+	const int k = 15;   // iters
+    double psum = 0; // partial sums
+    for(int n = 0; n < k; ++n)
+    {
+        long fac = factorial(n);
+        psum += ( pow(x, n) ) / fac;
+    }   
+    return psum;
 }

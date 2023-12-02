@@ -143,5 +143,15 @@ int parse_options(int argc, char* argv[])
 	cos_val = cos_(theta);
 	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
 
+	double exp_val = e_(1);
+	cout << "exp( " << 1 << " ) = " << exp_val << endl;
+
+	exp_val = e_(pi);
+	cout << "exp( " << pi << " ) = " << exp_val << endl; 
+
+	exp_val = e_(2);
+	cout << "exp( " << 2 << " ) = " << exp_val << endl; 
+
+
 	return 0;
 }

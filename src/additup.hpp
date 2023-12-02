@@ -17,8 +17,8 @@ double cos_(const double x);
 double sind_(const double x);
 double cosd_(const double x);
 
-int pi_();
-int e_(long x);
+double pi_();
+double e_(long x);
 
 static const double pi = 3.141618;
 
