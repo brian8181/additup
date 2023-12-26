@@ -13,9 +13,9 @@
 
 // License:    GPL
 // Author:     Brian K Preston
-// File Name:  bash_color.h
-// Build Date: Tue Nov 21 04:38:53 PM CST 2023
-// Version:    3.6.7
+// File Name:  additup.cpp
+// Build Date: Tue Dec 26 07:35:13 AM CST 2023
+// Version:    0.0.1
 
 #ifndef _BASH_COLOR_HPP
 #define _BASH_COLOR_HPP
