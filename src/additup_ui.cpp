@@ -24,6 +24,7 @@
 #include "bash_color.h"
 #include "additup_ui.hpp"
 #include "fixed_width.hpp"
+#include "additup.hpp"
 
 using namespace std;
 
@@ -146,12 +147,21 @@ int parse_options(int argc, char* argv[])
 	double exp_val = e_(1);
 	cout << "exp( " << 1 << " ) = " << exp_val << endl;
 
+	double ln_val = ln_(exp_val);
+	cout << "ln( " << exp_val << " ) = " << ln_val << endl;
+
 	exp_val = e_(pi);
 	cout << "exp( " << pi << " ) = " << exp_val << endl; 
 
 	exp_val = e_(2);
 	cout << "exp( " << 2 << " ) = " << exp_val << endl; 
 
+	ln_val = ln_(10);
+	cout << "ln( " << 10 << " ) = " << ln_val << endl;
+
+	double log_val = log_(1000);
+	cout << "ln( " << 1000 << " ) = " << log_val << endl;
+	
 
 	return 0;
 }

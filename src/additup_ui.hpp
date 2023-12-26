@@ -17,8 +17,8 @@
 // Build Date: Tue Nov 21 04:38:53 PM CST 2023
 // Version:    3.6.7
 
-#ifndef _additup_ui_HPP
-#define _additup_ui_HPP
+#ifndef _ADDITUP_UI_HPP
+#define _ADDITUP_UI_HPP
 
 #include <string>
 

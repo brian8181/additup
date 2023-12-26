@@ -1,6 +1,9 @@
 #ifndef _additup_HPP
 #define _additup_HPP
 
+#include "bgfloat.hpp"
+#include "bgint.hpp"
+
 int add(int lhs, int rhs);
 int subtract(int lhs, int rhs);
 int multiply(int lhs, int rhs);
@@ -19,6 +22,10 @@ double cosd_(const double x);
 
 double pi_();
 double e_(long x);
+double ln_(long x);
+double log_(long x);
+double log_(bgfloat base, bgfloat n);
+
 
 static const double pi = 3.141618;
 

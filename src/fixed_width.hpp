@@ -1,11 +1,6 @@
 #ifndef _FIXED_WIDTH_HPP
 #define _FIXED_WIDTH_HPP
 
-#include <string>
-#include <cmath>
-#include <ratio>
-#include "additup.hpp"
-
 using std::string;
 
 class fixed_width 
@@ -29,7 +24,7 @@ public:
     long val = 0;
     int width = 4;
     string base_10_str;
-    std::mega m;
+    //std::mega m;
 };
 
 #endif

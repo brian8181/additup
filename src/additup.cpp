@@ -187,3 +187,27 @@ double e_(long x)
     }   
     return psum;
 }
+
+double ln_(long x)
+{
+    const int k = 15;   // iters
+    double psum = 0; // partial sums
+    for(int n = 0; n < k; ++n)
+    {
+        long fac = factorial(n);
+        psum += ( pow(x, n) ) / fac;
+    }   
+    return pow(psum, -1);
+}
+
+double log_(long x)
+{
+    const int k = 15;   // iters
+    double psum = 0; // partial sums
+    for(int n = 0; n < k; ++n)
+    {
+        n *= n;
+        psum += ( pow(x, n) ) / n;
+    }   
+    return pow(psum, -1);
+}
