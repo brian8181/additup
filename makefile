@@ -27,8 +27,8 @@ INCLUDES = -I/usr/local/include/fmt/
 
 all: additup_ui
 
-additup_ui: additup_ui.o additup.o main.o fixed_width.o #@@PREREQUISTE@@
-	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o /usr/local/lib64/libfmt.a -o $(BUILD)/additup_ui #@@CLASS_NAME@@
+additup_ui: additup_ui.o additup.o main.o fixed_width.o complex.o
+	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o $(BUILD)/complex.o /usr/local/lib64/libfmt.a -o $(BUILD)/additup_ui
 
 additup_ui.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/additup_ui.cpp -o $(BUILD)/additup_ui.o
@@ -41,6 +41,12 @@ fixed_width.o:
 	
 main.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BUILD)/main.o
+
+complex.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/complex.cpp -o $(BUILD)/complex.o
+
+units.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/units.cpp -o $(BUILD)/units.o
 
 #AUTO_INSERT_POINT_DO_NOT_REMOVE#
 

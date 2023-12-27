@@ -24,6 +24,7 @@
 #include "bash_color.h"
 #include "additup_ui.hpp"
 #include "fixed_width.hpp"
+#include "complex.hpp"
 #include "additup.hpp"
 
 using namespace std;
@@ -161,6 +162,16 @@ int parse_options(int argc, char* argv[])
 
 	double log_val = log_(1000);
 	cout << "ln( " << 1000 << " ) = " << log_val << endl;
+
+	complex_int c1 = complex_int(0,0);
+	cout << "complex_int(0,0) : ";
+	cout << "real( " << c1.get_real() << " ) + " << "imag( " << c1.get_imag() << " )" << endl;
+	cout << c1.get_real() << " + " << c1.get_imag() << "i" << endl;
+
+	complex_int c2 = complex_int(2,3);
+	cout << "complex_int(0,0) : ";
+	cout << "real( " << c2.get_real() << " ) + " << "imag( " << c2.get_imag() << " )" << endl;
+	cout << c2.get_real() << " + " << c2.get_imag() << "i" << endl;
 	
 
 	return 0;
