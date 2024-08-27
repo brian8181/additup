@@ -48,8 +48,6 @@ complex.o:
 units.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/units.cpp -o $(BUILD)/units.o
 
-#AUTO_INSERT_POINT_DO_NOT_REMOVE#
-
 clean:
 	-rm -f $(BUILD)/*
 	

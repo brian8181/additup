@@ -31,17 +31,18 @@ using namespace std;
 
 int parse_options(int argc, char* argv[])
 {
-	cout << FMT_FG_BLUE << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_RED << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_GREEN << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_YELLOW << "Hello World!"  << FMT_RESET << endl;
-
 	int lhs = 2;
 	int rhs = 3;
 	int ans = 0;
 
 	ans = add(lhs, rhs);
 	cout << lhs << '+' << rhs << "=" << ans << endl;
+	ans = add(0, 1);
+	cout << "0" << '+' << "1" << "=" << ans << endl;
+	ans = add(2, 3);
+	cout << "2" << '+' << "3" << "=" << ans << endl;
+	ans = add(4, 5);
+	cout << "4" << '+' << "5" << "=" << ans << endl;
 
 	ans = subtract(lhs, rhs);
 	cout << lhs << '-' << rhs << "=" << ans << endl;
