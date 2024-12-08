@@ -30,10 +30,29 @@ class complex_int
 {
 public:
     complex_int(int real, int imag);
-    complex_int add(int a, complex_int b);
-    complex_int add(complex_int a, complex_int b);
-    complex_int multiply(int a, complex_int b);
-    complex_int multiply(complex_int a, complex_int b);
+    complex_int& add(const complex_int& a);
+    complex_int& multiply(const complex_int& a);
+    static complex_int& add(int a, complex_int b);
+    static complex_int& add(complex_int a, complex_int b);
+    static complex_int& multiply(int a, complex_int b);
+    static complex_int& multiply(const complex_int a, const complex_int b);
+
+    friend complex_int& operator+(const complex_int& a, const complex_int& b)
+    {
+        return add(a, b);
+    }
+    friend complex_int& operator*(const complex_int& a, const complex_int& b)
+    {
+        return multiply(a, b);
+    }
+    complex_int operator+(int that)
+    {
+        return add(that, *this);
+    }
+    complex_int operator+(complex_int& that)
+    {
+        return add(*this, that);
+    }
 
     int get_real();
     int get_imag();

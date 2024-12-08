@@ -45,7 +45,6 @@ double ln_(long x);
 double log_(long x);
 double log_(bgfloat base, bgfloat n);
 
-
-static const double pi = 3.141618;
+static const double pi = 3.141592653589793;
 
 #endif

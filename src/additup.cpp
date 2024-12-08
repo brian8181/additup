@@ -127,6 +127,11 @@ double sin_(const double x)
     return psum;
 }
 
+double sind_(const double x)
+{
+   return sin_(deg2rad(x));
+}
+
 double cos_(const double x)
 {
     const int k = 15;   // iters
@@ -138,11 +143,6 @@ double cos_(const double x)
         psum += ( pow(-1, n) * pow(x, s) ) / fac;
     }   
     return psum;
-}
-
-double sind_(const double x)
-{
-   return sin_(deg2rad(x));
 }
 
 double cosd_(const double x)
@@ -172,8 +172,7 @@ double pi_()
         sk += multiply(top, divide(1,bot));
         ++k;
     }
-    
-	return sk;
+    return sk;
 }
 
 double e_(long x)

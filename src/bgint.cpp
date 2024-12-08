@@ -11,8 +11,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// License:    GPL
-// Author:     Brian K Preston
 // File Name:  additup.cpp
 // Build Date: Tue Dec 26 07:35:13 AM CST 2023
 // Version:    0.0.1

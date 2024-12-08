@@ -25,25 +25,25 @@ complex_int::complex_int(int real, int imag)
     this->imag = imag;
 }
 
-complex_int complex_int::add(int a, complex_int b)
+complex_int& complex_int::add(int a, complex_int b)
 {
     complex_int ret((a + b.real), b.imag);
     return ret;
 }
 
-complex_int complex_int::add(complex_int a, complex_int b)
+complex_int& complex_int::add(complex_int a, complex_int b)
 {
     complex_int ret((a.real + b.real), (a.imag + b.imag));
     return ret;
 }
 
-complex_int complex_int::multiply(int a, complex_int b)
+complex_int& complex_int::multiply(int a, complex_int b)
 {
     complex_int ret (a*b.get_real(), a*b.get_imag());
     return ret;
 }
 
-complex_int complex_int::multiply(complex_int a, complex_int b)
+complex_int& complex_int::multiply(complex_int a, complex_int b)
 {
     complex_int ret = add(multiply(a.get_real(), b), multiply(a.get_imag(), b));
     return ret;
