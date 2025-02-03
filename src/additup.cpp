@@ -199,6 +199,43 @@ double ln_(long x)
     return pow(psum, -1);
 }
 
+double ln__(long x)
+{
+    // from Wolfram ...
+    // https://www.wolframalpha.com/input?i=ln
+
+
+    // for abs(-1 + x)<1
+    // log(x) = - sum_(k=1)^∞ ((-1)^k (-1 + x)^k)/k 
+    double psum = 0;
+    if((x + -1) < 1)
+    {
+        const int k = 15;
+        for(int n = 0; n < k; ++n)
+        {
+            term1 = (-1 + x);
+            numerator = pow(-1, n) .* pow(term1, n);
+            sum += numerator/n;
+        }   
+        return psum;
+       
+    }
+
+    // for abs(-1 + x)>1
+    // log(x) = log(-1 + x) - sum_(k=1)^∞ ((-1)^k (-1 + x)^(-k))/k 
+    if((x + -1) > 1)
+    {
+        const int k = 15;
+        for(int n = 0; n < k; ++n)
+        {
+            term1 = (-1 + x);
+            numerator = pow(-1, n) .* pow(term1, -n);
+            psum += numerator/(n);
+        }   
+        return (ln__(-1 + x) - psum); 
+    }
+}
+
 double log_(long x)
 {
     const int k = 15;   // iters

@@ -42,8 +42,10 @@ double cosd_(const double x);
 double pi_();
 double e_(long x);
 double ln_(long x);
+double ln__(long x);
 double log_(long x);
 double log_(bgfloat base, bgfloat n);
+
 
 static const double pi = 3.141592653589793;
 
