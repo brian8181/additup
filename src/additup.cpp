@@ -27,6 +27,9 @@
 
 using namespace std;
 
+//namespace add_it_up
+//{
+
 int add(int lhs, int rhs)
 {
 	#ifndef NO_SHOW
@@ -213,9 +216,9 @@ double ln__(long x)
         const int k = 15;
         for(int n = 0; n < k; ++n)
         {
-            term1 = (-1 + x);
-            numerator = pow(-1, n) .* pow(term1, n);
-            sum += numerator/n;
+            double term1 = (-1 + x);
+            double numerator = pow(-1, n) * pow(term1, n);
+            psum += numerator/n;
         }   
         return psum;
        
@@ -228,12 +231,14 @@ double ln__(long x)
         const int k = 15;
         for(int n = 0; n < k; ++n)
         {
-            term1 = (-1 + x);
-            numerator = pow(-1, n) .* pow(term1, -n);
+            double term1 = (-1 + x);
+            double numerator = pow(-1, n) * pow(term1, -n);
             psum += numerator/(n);
         }   
         return (ln__(-1 + x) - psum); 
     }
+
+    return 0;
 }
 
 double log_(long x)
@@ -247,3 +252,5 @@ double log_(long x)
     }   
     return pow(psum, -1);
 }
+
+//}

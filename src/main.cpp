@@ -35,7 +35,8 @@ int stdin_ready (int filedes)
 	FD_ZERO(&set);
 	FD_SET(filedes, &set);
 	// check stdin_ready is ready on filedes 
-	return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
+	//return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
+	return 0; // hack
 }
 
 int main(int argc, char* argv[])

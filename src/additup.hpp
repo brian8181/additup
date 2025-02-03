@@ -23,6 +23,9 @@
 #include "bgfloat.hpp"
 #include "bgint.hpp"
 
+//namespace add_it_up
+//{
+
 int add(int lhs, int rhs);
 int subtract(int lhs, int rhs);
 int multiply(int lhs, int rhs);
@@ -48,5 +51,7 @@ double log_(bgfloat base, bgfloat n);
 
 
 static const double pi = 3.141592653589793;
+
+//}
 
 #endif

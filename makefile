@@ -19,35 +19,38 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++20 -DDEBUG -g
 #CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
-BUILD = build
-OBJ =  build
-SRC = src
+BLD= build
+OBJ= build
+SRC= src
 LDFLAGS = -static -llibfmt -L/usr/local/lib64/fmt
 INCLUDES = -I/usr/local/include/fmt/
 
-all: additup_ui
+all: $(BLD)/additup_ui
 
-additup_ui: additup_ui.o additup.o main.o fixed_width.o complex.o
-	 $(CXX) $(CXXFLAGS) $(BUILD)/additup_ui.o $(BUILD)/additup.o $(BUILD)/main.o $(BUILD)/fixed_width.o $(BUILD)/complex.o /usr/local/lib64/libfmt.a -o $(BUILD)/additup_ui
+$(BLD)/additup_ui: $(BLD)/additup_ui.o $(BLD)/additup.o $(BLD)/main.o $(BLD)/fixed_width.o $(BLD)/complex.o
+	 $(CXX) $(CXXFLAGS) $(BLD)/additup_ui.o $(BLD)/additup.o $(BLD)/main.o $(BLD)/fixed_width.o $(BLD)/complex.o /usr/local/lib64/libfmt.a -o $(BLD)/additup_ui
 
-additup_ui.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/additup_ui.cpp -o $(BUILD)/additup_ui.o
+$(BLD)/additup_ui.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/additup_ui.cpp -o $(BLD)/additup_ui.o
 
-additup.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/additup.cpp -o $(BUILD)/additup.o
+$(BLD)/additup.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/additup.cpp -o $(BLD)/additup.o
 
-fixed_width.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/fixed_width.cpp -o $(BUILD)/fixed_width.o
+$(BLD)/fixed_width.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/fixed_width.cpp -o $(BLD)/fixed_width.o
 	
-main.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BUILD)/main.o
+$(BLD)/main.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BLD)/main.o
 
-complex.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/complex.cpp -o $(BUILD)/complex.o
+$(BLD)/complex.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/complex.cpp -o $(BLD)/complex.o
 
-units.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/units.cpp -o $(BUILD)/units.o
+$(BLD)/units.o:
+	$(CXX) $(CXXFLAGS) -c $(SRC)/units.cpp -o $(BLD)/units.o
+
+$(BLD)/test: $(SRC)/test.cpp $(BLD)/additup.o
+	$(CXX) $(CXXFLAGS) $(SRC)/test.cpp $(BLD)/additup.o -o $(BLD)/test
 
 clean:
-	-rm -f $(BUILD)/*
+	-rm -f $(BLD)/*
 	
