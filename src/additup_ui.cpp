@@ -28,6 +28,7 @@
 #include "additup.hpp"
 
 using namespace std;
+using namespace aiu;
 
 int parse_options(int argc, char* argv[])
 {
@@ -100,7 +101,7 @@ int parse_options(int argc, char* argv[])
 
 	string s = fmt::format("Pi apporx. {0}", pi);
 	cout << "format test: " << "Pi = " << s << endl;
-	
+
 	fixed_width splight(3000000, 7, 4);
 	cout << "Speed of light: " << splight.to_str() << endl;
 
@@ -110,7 +111,7 @@ int parse_options(int argc, char* argv[])
 
 	double cos_val = cos_(theta);
 	cout << "cos( " <<  rad2deg(theta) << " ) = " << cos_val <<  endl;
-	
+
 	theta = pi/2;
 	sin_val = sin_(theta);
 	cout << "sin( " <<  rad2deg(theta) << " ) = " << sin_val <<  endl;
@@ -153,12 +154,13 @@ int parse_options(int argc, char* argv[])
 	cout << "ln( " << exp_val << " ) = " << ln_val << endl;
 
 	exp_val = e_(pi);
-	cout << "exp( " << pi << " ) = " << exp_val << endl; 
+	cout << "exp( " << pi << " ) = " << exp_val << endl;
 
 	exp_val = e_(2);
-	cout << "exp( " << 2 << " ) = " << exp_val << endl; 
+	cout << "exp( " << 2 << " ) = " << exp_val << endl;
 
-	ln_val = ln_(10);
+	double d = 10;
+	ln_val = ln_(d);
 	cout << "ln( " << 10 << " ) = " << ln_val << endl;
 
 	double log_val = log_(1000);
@@ -173,7 +175,12 @@ int parse_options(int argc, char* argv[])
 	cout << "complex_int(0,0) : ";
 	cout << "real( " << c2.get_real() << " ) + " << "imag( " << c2.get_imag() << " )" << endl;
 	cout << c2.get_real() << " + " << c2.get_imag() << "i" << endl;
-	
 
+	int 15;
+	for(int i = 1; i < n; ++i)
+	{
+		long f = factorial(i);
+		cout << f << endl;
+	}
 	return 0;
 }

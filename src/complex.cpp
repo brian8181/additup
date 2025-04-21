@@ -27,13 +27,13 @@ complex_int::complex_int(int real, int imag)
 
 complex_int& complex_int::add(const int& a, const complex_int& b, /* out */ complex_int& r)
 {
-    r = ((a + b.real), b.imag);
+    r = complex_int((a + b.real), b.imag);
     return r;
 }
 
 complex_int& complex_int::add(const complex_int& a, const complex_int& b, /* out */ complex_int& r)
 {
-    r = ((a.real + b.real), (a.imag + b.imag));
+    r = complex_int((a.real + b.real), (a.imag + b.imag));
     return r;
 }
 
@@ -41,15 +41,15 @@ complex_int& complex_int::multiply(int a, complex_int& b)
 {
     complex_int ret (a*b.get_real(), a*b.get_imag());
     b = ret;
-    return ret;
+    return b;
 }
 
-complex_int& complex_int::multiply(complex_int a, complex_int& b)
-{
-    complex_int ret = add(multiply(a.get_real(), b), multiply(a.get_imag(), b));
-    b = ret;
-    return ret;
-}
+// complex_int& complex_int::multiply(complex_int a, complex_int& b)
+// {
+//     complex_int ret = add(multiply(a.get_real(), b), multiply(a.get_imag(), b));
+//     b = ret;
+//     return ret;
+// }
 
 int complex_int::get_real()
 {

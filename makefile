@@ -17,18 +17,20 @@
 # Version:    0.0.1
 
 CXX = g++
-CXXFLAGS = -Wall -std=c++20 -DDEBUG -g
+#CXXFLAGS = -Wall -std=c++20 -DDEBUG -g
+CXXFLAGS=-Wall -std=c++17 -DDEBUG -DCYGWIN -g
 #CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
 BLD= build
 OBJ= build
 SRC= src
-LDFLAGS = -static -llibfmt -L/usr/local/lib64/fmt
+#LDFLAGS = -static -llibfmt -L/usr/local/lib64/fmt
+LDFLAGS = -static -llibfmt -L/usr/local/lib/fmt
 INCLUDES = -I/usr/local/include/fmt/
 
-all: $(BLD)/additup_ui
+all: $(BLD)/test $(BLD)/additup_ui
 
 $(BLD)/additup_ui: $(BLD)/additup_ui.o $(BLD)/additup.o $(BLD)/main.o $(BLD)/fixed_width.o $(BLD)/complex.o
-	 $(CXX) $(CXXFLAGS) $(BLD)/additup_ui.o $(BLD)/additup.o $(BLD)/main.o $(BLD)/fixed_width.o $(BLD)/complex.o /usr/local/lib64/libfmt.a -o $(BLD)/additup_ui
+	 $(CXX) $(CXXFLAGS) $(BLD)/additup_ui.o $(BLD)/additup.o $(BLD)/main.o $(BLD)/fixed_width.o $(BLD)/complex.o $(LDFLAGS) -o $(BLD)/additup_ui
 
 $(BLD)/additup_ui.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/additup_ui.cpp -o $(BLD)/additup_ui.o
@@ -38,7 +40,7 @@ $(BLD)/additup.o:
 
 $(BLD)/fixed_width.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/fixed_width.cpp -o $(BLD)/fixed_width.o
-	
+
 $(BLD)/main.o:
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BLD)/main.o
 
@@ -53,4 +55,3 @@ $(BLD)/test: $(SRC)/test.cpp $(BLD)/additup.o
 
 clean:
 	-rm -f $(BLD)/*
-	

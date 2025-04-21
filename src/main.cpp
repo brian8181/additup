@@ -1,20 +1,5 @@
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-// License:    GPL
-// Author:     Brian K Preston
-// File Name:  additup.cpp
-// Build Date: Tue Dec 26 07:35:13 AM CST 2023
+// File Name:  main.cpp
+// Build Date: Sat Sep  7 12:20:36 AM CDT 2024
 // Version:    0.0.1
 
 #include <iostream>
@@ -28,31 +13,39 @@
 
 int stdin_ready (int filedes)
 {
-	fd_set set;
-	// declare/initialize zero timeout 
-	struct timespec timeout = { .tv_sec = 0 };
-	// initialize the file descriptor set
-	FD_ZERO(&set);
-	FD_SET(filedes, &set);
-	// check stdin_ready is ready on filedes 
-	//return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
-	return 0; // hack
+        fd_set set;
+        // declare/initialize zero timeout
+#ifndef CYGWIN
+        struct timespec timeout = { .tv_sec = 0 };
+#else
+        struct timeval timeout = { .tv_sec = 0 };
+#endif
+        // initialize the file descriptor set
+        FD_ZERO(&set);
+        FD_SET(filedes, &set);
+
+        // check stdin_ready is ready on filedes
+#ifndef CYGWIN
+                return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
+#else
+                return select(filedes + 1, &set, NULL, NULL, &timeout);
+#endif
 }
+
 
 int main(int argc, char* argv[])
 {
 	try
 	{
+		char* pipe_buff[sizeof(char*) * argc+1];
 		if(stdin_ready(STDIN_FILENO))
 		{
 			std::string buffer;
 			std::cin >> buffer;
-			// add piped buffer to end of argv
-			char* argvtmp[sizeof(char*) * argc+1];
-			memcpy(argvtmp, argv, sizeof(char*) * argc);
-			argvtmp[argc] = &buffer[0];
-			argv = argvtmp;
+			memcpy(pipe_buff, argv, sizeof(char*) * argc);
+			pipe_buff[argc] = &buffer[0];
 			++argc;
+			return parse_options(argc, pipe_buff);
 		}
 		return parse_options(argc, argv);
 	}

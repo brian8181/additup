@@ -30,6 +30,8 @@ using namespace std;
 //namespace add_it_up
 //{
 
+namespace aiu
+{
 int add(int lhs, int rhs)
 {
 	#ifndef NO_SHOW
@@ -126,7 +128,7 @@ double sin_(const double x)
         long s = (2.*n) + 1;
         long fac = factorial(s);
         psum += ( pow(-1, n) * pow(x, s) ) / fac;
-    }   
+    }
     return psum;
 }
 
@@ -144,7 +146,7 @@ double cos_(const double x)
         long s = (2*n);
         long fac = factorial(s);
         psum += ( pow(-1, n) * pow(x, s) ) / fac;
-    }   
+    }
     return psum;
 }
 
@@ -186,7 +188,7 @@ double e_(long x)
     {
         long fac = factorial(n);
         psum += ( pow(x, n) ) / fac;
-    }   
+    }
     return psum;
 }
 
@@ -198,46 +200,44 @@ double ln_(long x)
     {
         long fac = factorial(n);
         psum += ( pow(x, n) ) / fac;
-    }   
+    }
     return pow(psum, -1);
 }
 
-double ln__(long x)
+double ln_(double x)
 {
     // from Wolfram ...
     // https://www.wolframalpha.com/input?i=ln
 
-
     // for abs(-1 + x)<1
-    // log(x) = - sum_(k=1)^∞ ((-1)^k (-1 + x)^k)/k 
+    // log(x) = - sum_(k=1)^∞ ((-1)^k (-1 + x)^k)/k
+
+    // for abs(-1 + x)>1
+    // log(x) = log(-1 + x) - sum_(k=1)^∞ ((-1)^k (-1 + x)^(-k))/k
+
+    const int k = 15;
     double psum = 0;
+
     if((x + -1) < 1)
     {
-        const int k = 15;
         for(int n = 0; n < k; ++n)
         {
             double term1 = (-1 + x);
             double numerator = pow(-1, n) * pow(term1, n);
             psum += numerator/n;
-        }   
+        }
         return psum;
-       
     }
-
-    // for abs(-1 + x)>1
-    // log(x) = log(-1 + x) - sum_(k=1)^∞ ((-1)^k (-1 + x)^(-k))/k 
-    if((x + -1) > 1)
+    else
     {
-        const int k = 15;
         for(int n = 0; n < k; ++n)
         {
             double term1 = (-1 + x);
             double numerator = pow(-1, n) * pow(term1, -n);
-            psum += numerator/(n);
-        }   
-        return (ln__(-1 + x) - psum); 
+            psum += numerator/n;
+        }
+        return (ln_(-1 + x) - psum);
     }
-
     return 0;
 }
 
@@ -249,8 +249,14 @@ double log_(long x)
     {
         n *= n;
         psum += ( pow(x, n) ) / n;
-    }   
+    }
     return pow(psum, -1);
+}
+
+double log_(double base, double n)
+{
+    return (ln_(n) / ln_(base));
+}
 }
 
 //}

@@ -23,8 +23,8 @@
 #include "bgfloat.hpp"
 #include "bgint.hpp"
 
-//namespace add_it_up
-//{
+namespace aiu
+{
 
 int add(int lhs, int rhs);
 int subtract(int lhs, int rhs);
@@ -33,6 +33,7 @@ int divide(int dividend, int divisor);
 int divide(int dividend, int divisor, /* out */ int& remainder);
 long factorial(long x);
 int pow_(int n, int pow);
+int pow_(double n, int pow);
 
 double rad2deg(double radians);
 double deg2rad(double degrees);
@@ -44,14 +45,20 @@ double cosd_(const double x);
 
 double pi_();
 double e_(long x);
-double ln_(long x);
-double ln__(long x);
-double log_(long x);
+double ln_(long x); // natural
+double ln_(double x); // natural
+double log_(long x); // base 10
 double log_(bgfloat base, bgfloat n);
-
+double log_(double base, double n);
 
 static const double pi = 3.141592653589793;
+static const double e = 2.71828182846;
 
-//}
+
+//static const double e = 2'7182'8182'8490; // 15 digits from 52 bits
+//e=2.71828182845904523536028747135266249775724709369995957496696762772407663035...
+//2.71828182845904
+
+}
 
 #endif
