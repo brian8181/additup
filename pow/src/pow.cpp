@@ -37,7 +37,9 @@ static struct option long_options[] =
 
 unsigned short OPTION_FLAGS = DEFAULTS;
 
+// *
 // Integer power: a^n
+// *
 double int_pow(double base, int exp)
 {
     double result = 1.0;
@@ -48,7 +50,9 @@ double int_pow(double base, int exp)
     return result;
 }
 
+// *
 // Nth root using binary search
+// *
 double nth_root(double x, int n)
 {
     double low = 0, high = x, mid;
@@ -67,14 +71,18 @@ double nth_root(double x, int n)
     return (low + high) / 2.0;
 }
 
+// *
 // a^(m/n)
+// *
 double fractional_pow(double a, int m, int n)
 {
     double powered = int_pow(a, m);      // a^m
     return nth_root(powered, n);         // (a^m)^(1/n)
 }
 
+// *
 // Taylor series for natural log ln(x), valid for 0.5 < x < 1.5
+// *
 double ln(double x)
 {
     if (x <= 0) return 0;  // ln undefined for <= 0
@@ -93,7 +101,9 @@ double ln(double x)
     return 2 * result;
 }
 
+// *
 // Taylor series for exp(x)
+// *
 double exp_taylor(double x)
 {
     double sum = 1.0;  // First term of series
@@ -106,7 +116,9 @@ double exp_taylor(double x)
     return sum;
 }
 
+// *
 // Real power a^b = exp(b * ln(a))
+// *
 double real_pow(double a, double b)
 {
     if (a <= 0) return 0; // ln(a) undefined
@@ -114,6 +126,7 @@ double real_pow(double a, double b)
     double exp_result = exp_taylor(b * log_a);
     return exp_result;
 }
+
 void print_version()
 {
 	cout << VERSION_STRING << endl;
@@ -160,7 +173,6 @@ int parse_options(int argc, char* argv[])
     double result1 = fractional_pow(x, m, n);    // computes sqrt(9)
     printf("%f^(%d/%d) = %f\n", x, m, n, result1); // should print 3.000...
 
-
     double a = 5.0;
     double b = 1.414;  // approx sqrt(2)
     double result2 = real_pow(a, b);
@@ -184,9 +196,9 @@ int stdin_ready (int filedes)
 
         // check stdin_ready is ready on filedes
 #ifndef CYGWIN
-                return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
+        return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
 #else
-                return select(filedes + 1, &set, NULL, NULL, &timeout);
+        return select(filedes + 1, &set, NULL, NULL, &timeout);
 #endif
 }
 
