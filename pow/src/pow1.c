@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Integer power: a^n
+/* Integer power: a^n */
 double int_pow(double base, int exp)
 {
     double result = 1.0;
@@ -11,7 +11,7 @@ double int_pow(double base, int exp)
     return result;
 }
 
-// Nth root using binary search
+/* Nth root using binary search */
 double nth_root(double x, int n)
 {
     double low = 0, high = x, mid;
@@ -30,7 +30,8 @@ double nth_root(double x, int n)
     return (low + high) / 2.0;
 }
 
-// a^(m/n)
+/* */
+/* a^(m/n) */
 double fractional_pow(double a, int m, int n)
 {
     double powered = int_pow(a, m);      // a^m

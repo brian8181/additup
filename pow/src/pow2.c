@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Taylor series for natural log ln(x), valid for 0.5 < x < 1.5
+/* Taylor series for natural log ln(x), valid for 0.5 < x < 1.5 */
 double ln(double x)
 {
     if (x <= 0) return 0;  // ln undefined for <= 0
@@ -19,7 +19,7 @@ double ln(double x)
     return 2 * result;
 }
 
-// Taylor series for exp(x)
+/* Taylor series for exp(x) */
 double exp_taylor(double x)
 {
     double sum = 1.0;  // First term of series
@@ -32,7 +32,7 @@ double exp_taylor(double x)
     return sum;
 }
 
-// Real power a^b = exp(b * ln(a))
+/* Real power a^b = exp(b * ln(a)) */
 double real_pow(double a, double b)
 {
     if (a <= 0) return 0; // ln(a) undefined
