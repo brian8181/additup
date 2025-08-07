@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include <string>
+#include <expected>
 #include <getopt.h>
 #include <fmt/format.h>
 #include <cmath>
@@ -32,6 +33,22 @@ using namespace std;
 
 namespace aiu
 {
+
+    auto parse_number(std::string_view& str) -> std::expected<double, parse_error>
+{
+    const char* begin = str.data();
+    char* end;
+    double retval = std::strtod(begin, &end);
+
+    if (begin == end)
+        return std::unexpected(parse_error::invalid_input);
+    else if (std::isinf(retval))
+        return std::unexpected(parse_error::overflow);
+
+    str.remove_prefix(end - begin);
+    return retval;
+}
+
 int add(int lhs, int rhs)
 {
 	#ifndef NO_SHOW
@@ -58,6 +75,9 @@ int multiply(int lhs, int rhs)
 
 int divide(int dividend, int divisor)
 {
+    // std::expected<int, string> e;
+    // if(divisor == 0)
+    //     e.error = "error";
     int c = 1;
     int r = divisor;
     while(r < dividend)

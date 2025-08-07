@@ -176,7 +176,6 @@ int parse_options(int argc, char* argv[])
 	cout << "real( " << c2.get_real() << " ) + " << "imag( " << c2.get_imag() << " )" << endl;
 	cout << c2.get_real() << " + " << c2.get_imag() << "i" << endl;
 
-	int 15;
 	for(int i = 1; i < n; ++i)
 	{
 		long f = factorial(i);

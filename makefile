@@ -18,13 +18,13 @@
 
 CXX = g++
 #CXXFLAGS = -Wall -std=c++20 -DDEBUG -g
-CXXFLAGS=-Wall -std=c++17 -DDEBUG -DCYGWIN -g
+CXXFLAGS=-Wall -std=c++23 -DDEBUG -DCYGWIN -g
 #CXXFLAGS = -Wall -std=c++17 -DDEBUG -DNO_SHOW -g
 BLD= build
 OBJ= build
 SRC= src
 #LDFLAGS = -static -llibfmt -L/usr/local/lib64/fmt
-LDFLAGS = -static -llibfmt -L/usr/local/lib/fmt
+LDFLAGS = /usr/local/lib/libfmt.a
 INCLUDES = -I/usr/local/include/fmt/
 
 all: $(BLD)/test $(BLD)/additup_ui
